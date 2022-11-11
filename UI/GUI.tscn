@@ -1,0 +1,19 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://UI/UITheme.tres" type="Theme" id=1]
+[ext_resource path="res://UI/PauseMenu.tscn" type="PackedScene" id=2]
+
+[node name="GUI" type="CanvasLayer"]
+
+[node name="PauseMenu" parent="." instance=ExtResource( 2 )]
+pause_mode = 2
+visible = false
+
+[node name="ProgressBar" type="ProgressBar" parent="."]
+margin_left = 17.0
+margin_top = 21.0
+margin_right = 167.0
+margin_bottom = 51.0
+theme = ExtResource( 1 )
+value = 50.0
+percent_visible = false

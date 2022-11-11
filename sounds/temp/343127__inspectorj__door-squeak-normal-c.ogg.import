@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/343127__inspectorj__door-squeak-normal-c.ogg-30d8088362dfa498980187bb31444a7c.oggstr"
+
+[deps]
+
+source_file="res://sounds/temp/343127__inspectorj__door-squeak-normal-c.ogg"
+dest_files=[ "res://.import/343127__inspectorj__door-squeak-normal-c.ogg-30d8088362dfa498980187bb31444a7c.oggstr" ]
+
+[params]
+
+loop=false
+loop_offset=0
