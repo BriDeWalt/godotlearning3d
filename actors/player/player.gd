@@ -12,9 +12,10 @@ export var jump_impulse: float = 12
 export var maxhealth: float = 150
 var velocity: Vector3 = Vector3.ZERO
 var flashclick = preload("res://sounds/temp/413690__splatfreesound__click.wav")
-
+onready var flashlight2 = $head/flashlight2
+onready var flashlight3 = $head/flashlight3
 onready var head: Spatial = $head
-onready var flashlight: SpotLight = $head/flashlight2
+
 onready var initial_pos = self.global_transform
 onready var health = maxhealth
 onready var bullet = preload("res://actors/bullet/Bullet.tscn")
@@ -26,12 +27,14 @@ func _unhandled_input(event):
 		_handle_camera_rotation(event)
 		
 func _input(event):
-	if Input.is_action_just_pressed("toglelight") and flashlight.visible == false:
-		flashlight.show()
+	if Input.is_action_just_pressed("toglelight") and flashlight2.visible == false:
+		flashlight2.show()
+		flashlight3.show()
 		$AudioStreamPlayer3D.stream = flashclick
 		$AudioStreamPlayer3D.play()
-	elif Input.is_action_just_pressed("toglelight") and flashlight.visible == true:
-		flashlight.hide()
+	elif Input.is_action_just_pressed("toglelight") and flashlight2.visible == true:
+		flashlight2.hide()
+		flashlight3.hide()
 		$AudioStreamPlayer3D.stream = flashclick
 		$AudioStreamPlayer3D.play()
 	
@@ -66,6 +69,7 @@ func _physics_process(delta):
 		var b = bullet.instance()
 		shoot.add_child(b)
 		b.rotation = $head/Camera.global_rotation
+		#b.rotate_z(deg2rad(5))
 		b.shoot = true
 	
 	velocity.x = lerp(velocity.x,movement.x*speed,acceleration*delta)
